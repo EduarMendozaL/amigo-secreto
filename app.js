@@ -31,6 +31,16 @@ function actualizarListaAmigos() {
     return;
 }
 
+function sortearAmigo() {
+    if (amigos.length <= 1) {
+        alert("Ingrese al menos dos nombres");
+    } else {
+        let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+        lista.innerHTML = "";
+        resultado.innerHTML = `El amigo secreto sorteado es: ${amigos[indiceAleatorio]}`;
+    }
+}
+
 function limpiarCajaNombre () {
     document.getElementById("amigo").value = "";
     nombreAmigo = "";
