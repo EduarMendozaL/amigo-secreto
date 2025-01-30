@@ -48,7 +48,7 @@ function sortearAmigo() {
 }
 
 // Función para validar que se ingresen solo letras y se cambien las mínusculas a mayúsculas
-function validarConvertirMayuscula(letra) {
+function validarConConvertirMayuscula(letra) {
     let valor = letra.value;
     
     document.getElementById("amigo").value = document.getElementById("amigo").value.toUpperCase();
