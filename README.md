@@ -1,12 +1,12 @@
 # Sorteador de Amigo Secreto
 
-Este proyecto es una sencilla aplicación web que permite agregar nombres de amigos, validar la entrada de datos, evitar duplicados y finalmente realizar el sorteo de un amigo secreto de manera aleatoria.
+Este proyecto es una sencilla aplicación web que permite agregar solo nombres de amigos, validar la entrada de datos, evitar duplicados y finalmente realizar el sorteo de un amigo secreto de manera aleatoria con al menos dos nombres.
 
 ## Características
 - Permite agregar nombres de amigos a una lista.
 - Valida que el nombre no esté vacío ni sea duplicado.
 - Convierte los nombres a mayúsculas de forma automática.
-- Permite eliminar caracteres no permitidos (solo letras).
+- Permite el ingreso solo de letras.
 - Realiza el sorteo de un amigo secreto de forma aleatoria.
 - Muestra el resultado del sorteo.
 
@@ -18,7 +18,7 @@ Este proyecto es una sencilla aplicación web que permite agregar nombres de ami
 ## Estructura del Proyecto
 - `index.html`: Archivo principal que contiene la estructura HTML de la aplicación.
 - `style.css`: Archivo para los estilos de la aplicación (opcional si deseas incluir diseño adicional).
-- `script.js`: Archivo con la lógica en JavaScript.
+- `app.js`: Archivo con la lógica en JavaScript.
 
 ## Cómo Usar
 
@@ -28,7 +28,7 @@ Este proyecto es una sencilla aplicación web que permite agregar nombres de ami
    ```
 2. Abre el archivo `index.html` en tu navegador.
 
-3. Ingresa los nombres de los amigos en el campo de texto y haz clic en `Agregar Amigo`.
+3. Ingresa los nombres de los amigos en el campo de texto y haz clic en `Añadir`.
    - Se validará que no ingreses nombres vacíos ni repetidos.
    - Los nombres se convertirán automáticamente a mayúsculas.
 
@@ -48,20 +48,20 @@ Actualiza la lista visible de amigos en el navegador.
 ### `sortearAmigo()`
 Realiza el sorteo del amigo secreto y muestra el resultado. Vacía la lista de amigos.
 
-### `validarConvertirMayuscula(letra)`
+### `validarConConvertirMayuscula(letra)`
 Convierte el nombre a mayúsculas y elimina caracteres no permitidos.
 
 ### `limpiarCajaNombre()`
 Limpia el campo de entrada de texto y mantiene el foco en él.
 
-## Mejoras Posibles
+<!-- ## Mejoras Posibles
 - Mantener la lista de amigos después del sorteo.
 - Guardar los nombres en `localStorage` para persistencia de datos.
 - Agregar estilos CSS para mejorar la interfaz.
 - Permitir exportar la lista de amigos y el resultado del sorteo.
 
 ## Contribuciones
-Las contribuciones son bienvenidas. Puedes enviar un pull request o abrir un issue.
+Las contribuciones son bienvenidas. Puedes enviar un pull request o abrir un issue. -->
 
 ## Licencia
 Este proyecto está bajo la Licencia MIT.
