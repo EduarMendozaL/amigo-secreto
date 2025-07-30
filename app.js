@@ -1,6 +1,8 @@
 let amigos = [];
 let amigo = document.getElementById("amigo");
 let lista = document.getElementById("listaAmigos");
+let resultado = document.getElementById("resultado");
+let indiceAleatorio = 0;
 
 
 function agregarAmigo() {
@@ -20,5 +22,15 @@ function actualizarLista() {
         const li = document.createElement("li");
         li.textContent = amigos[i];
         lista.appendChild(li); 
+    }
+}
+
+function sortearAmigo() {
+    if (amigos.length < 2) {
+        alert("Para sortear ingrese, al menos, dos nombre");
+    } else {
+        indiceAleatorio = Math.floor(Math.random() * amigos.length);
+        console.log(indiceAleatorio);
+        resultado.innerHTML = amigos[indiceAleatorio];
     }
 }
