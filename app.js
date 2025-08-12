@@ -14,6 +14,7 @@ function agregarAmigo() {
         amigo.value = "";
         actualizarLista();
     }
+    return;
 }
 
 function actualizarLista() {
@@ -23,6 +24,7 @@ function actualizarLista() {
         li.textContent = amigos[i];
         lista.appendChild(li); 
     }
+    return;
 }
 
 function sortearAmigo() {
@@ -32,5 +34,7 @@ function sortearAmigo() {
         indiceAleatorio = Math.floor(Math.random() * amigos.length);
         console.log(indiceAleatorio);
         resultado.innerHTML = amigos[indiceAleatorio];
+        // msg: El amigo secreto sorteado es: resultado.innerHTML...
     }
+    return;
 }
