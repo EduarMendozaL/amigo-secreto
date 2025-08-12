@@ -33,8 +33,8 @@ function sortearAmigo() {
     } else {
         indiceAleatorio = Math.floor(Math.random() * amigos.length);
         console.log(indiceAleatorio);
-        resultado.innerHTML = amigos[indiceAleatorio];
-        // msg: El amigo secreto sorteado es: resultado.innerHTML...
+        resultado.innerHTML = `El amigo secreto sorteado es: ${amigos[indiceAleatorio]}`;
+        lista.innerHTML = "";
     }
     return;
 }
