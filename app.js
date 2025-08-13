@@ -3,16 +3,24 @@ let amigo = document.getElementById("amigo");
 let lista = document.getElementById("listaAmigos");
 let resultado = document.getElementById("resultado");
 let indiceAleatorio = 0;
+let soloLetras = ["abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUáéíóúÁÉÍÓÚ"];
 
 
 function agregarAmigo() {
     if (amigo.value == "") {
         alert("Por favor, inserte un nombre");
+        amigo.focus();
     } else {
-        amigos.push(amigo.value);
-        console.log(amigos);
-        amigo.value = "";
-        actualizarLista();
+        if (amigos.includes(amigo.value.toUpperCase())) {
+            alert("Ese nombre ya está ingresado");
+            amigo.value = "";
+            amigo.focus();
+        } else {
+            amigos.push(amigo.value.toUpperCase());
+            console.log(amigos);
+            amigo.value = "";
+            actualizarLista();
+        }
     }
     return;
 }
@@ -30,6 +38,7 @@ function actualizarLista() {
 function sortearAmigo() {
     if (amigos.length < 2) {
         alert("Para sortear ingrese, al menos, dos nombre");
+        amigo.focus();
     } else {
         indiceAleatorio = Math.floor(Math.random() * amigos.length);
         console.log(indiceAleatorio);
