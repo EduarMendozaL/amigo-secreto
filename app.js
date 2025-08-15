@@ -1,49 +1,70 @@
 let amigos = [];
-let amigo = document.getElementById("amigo");
 let lista = document.getElementById("listaAmigos");
 let resultado = document.getElementById("resultado");
-let indiceAleatorio = 0;
-let soloLetras = ["abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUáéíóúÁÉÍÓÚ"];
 
 
 function agregarAmigo() {
-    if (amigo.value == "") {
+    let nombreAmigo = document.getElementById("amigo").value;
+
+    // Si el input está vacío
+    if (nombreAmigo == "") {
         alert("Por favor, inserte un nombre");
         amigo.focus();
     } else {
-        if (amigos.includes(amigo.value.toUpperCase())) {
-            alert("Ese nombre ya está ingresado");
-            amigo.value = "";
-            amigo.focus();
+        // Si un nombre ya está ingresado
+        if (amigos.includes(nombreAmigo)) {
+            alert(`"${nombreAmigo}" ya está ingresado`);
         } else {
-            amigos.push(amigo.value.toUpperCase());
-            console.log(amigos);
-            amigo.value = "";
+            amigos.push(nombreAmigo);
+            lista.innerHTML = "";
             actualizarLista();
         }
     }
+    limpiarCajaNombre();
+    resultado.innerHTML = "";
     return;
 }
 
 function actualizarLista() {
-    lista.innerHTML = "";
     for (let i = 0; i < amigos.length; i++) {
         const li = document.createElement("li");
-        li.textContent = amigos[i];
+        li.innerHTML = `${amigos[i]}`;
         lista.appendChild(li); 
     }
     return;
 }
 
 function sortearAmigo() {
-    if (amigos.length < 2) {
+    // Verificar que haya, al menos, dos nombres
+    if (amigos.length <= 1) {
         alert("Para sortear ingrese, al menos, dos nombre");
-        amigo.focus();
+        limpiarCajaNombre();
     } else {
-        indiceAleatorio = Math.floor(Math.random() * amigos.length);
-        console.log(indiceAleatorio);
-        resultado.innerHTML = `El amigo secreto sorteado es: ${amigos[indiceAleatorio]}`;
+        const indiceAleatorio = Math.floor(Math.random() * amigos.length);
         lista.innerHTML = "";
+        resultado.innerHTML = `El amigo secreto sorteado es: ${amigos[indiceAleatorio]}`;
+        amigos = [];
     }
+    return;
+}
+
+// función para que se ingresen solo letras y se cambien de minúscula a mayúscula
+function letrasConvertirMayuscula(letra) {
+    let valor = letra.value;
+
+    document.getElementById("amigo").value = document.getElementById("amigo").value.toUpperCase();
+
+    // Validar y eliminar caracteres no permitidos
+    if (!/^[a-zA-ZÀ-ÿ]*$/.test(valor)) {
+        // Remover caracterers no válidos
+        letra.value = valor.replace(/[^a-zA-ZÀ-ÿ]/g, "");
+    }
+    return;
+}
+
+function limpiarCajaNombre() {
+    document.getElementById("amigo").value = "";
+    nombreAmigo = "";
+    document.getElementById("amigo").focus();
     return;
 }
